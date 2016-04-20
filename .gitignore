@@ -1,0 +1,13 @@
+# Gradle files
+.gradle/
+build/
+
+.DS_Store
+.idea
+local.properties
+*.iml
+better/*.apk
+gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties
+gradlew
+gradlew.bat
