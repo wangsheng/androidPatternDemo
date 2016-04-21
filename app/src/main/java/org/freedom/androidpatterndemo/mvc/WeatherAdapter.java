@@ -1,4 +1,4 @@
-package org.freedom.androidpatterndevdemo.mvc;
+package org.freedom.androidpatterndemo.mvc;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import org.freedom.androidpatterndevdemo.mvc.model.Weather;
+import org.freedom.androidpatterndemo.mvc.model.Weather;
 
 import java.util.List;
 

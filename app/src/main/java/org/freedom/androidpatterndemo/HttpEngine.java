@@ -1,4 +1,4 @@
-package org.freedom.androidpatterndevdemo;
+package org.freedom.androidpatterndemo;
 
 import android.os.Handler;
 import android.os.Looper;

@@ -1,4 +1,4 @@
-package org.freedom.androidpatterndevdemo;
+package org.freedom.androidpatterndemo;
 
 /**
  * Created by wangsheng on 16/4/20.

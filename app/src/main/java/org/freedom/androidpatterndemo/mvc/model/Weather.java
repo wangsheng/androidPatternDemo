@@ -1,4 +1,4 @@
-package org.freedom.androidpatterndevdemo.mvc.model;
+package org.freedom.androidpatterndemo.mvc.model;
 
 /**
  * 天气实体类

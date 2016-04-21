@@ -1,9 +1,8 @@
-package org.freedom.androidpatterndevdemo.mvc;
+package org.freedom.androidpatterndemo.mvc;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -15,10 +14,10 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import org.freedom.androidpatterndevdemo.Constants;
-import org.freedom.androidpatterndevdemo.HttpEngine;
-import org.freedom.androidpatterndevdemo.R;
-import org.freedom.androidpatterndevdemo.mvc.model.Weather;
+import org.freedom.androidpatterndemo.Constants;
+import org.freedom.androidpatterndemo.HttpEngine;
+import org.freedom.androidpatterndemo.R;
+import org.freedom.androidpatterndemo.mvc.model.Weather;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
