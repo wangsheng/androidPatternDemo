@@ -1,13 +1,12 @@
 package org.freedom.androidpatterndevdemo;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
-import org.freedom.androidpatterndevdemo.R;
 
 /**
  * 应用主页，包含三种模式的入口:
@@ -39,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 switch (position) {
                     case 0:
-                        //TODO go to MVC demo
+                        //go to MVC demo
+                        forward(org.freedom.androidpatterndevdemo.mvc.WeatherActivity.class);
                         break;
                     case 1:
                         //TODO go to MVP demo
@@ -52,5 +52,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void forward(Class<?> destCls) {
+        Intent mIntent = new Intent();
+        mIntent.setClass(this, destCls);
+        startActivity(mIntent);
     }
 }
