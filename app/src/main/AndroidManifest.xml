@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name="org.freedom.androidpatterndemo.mvc.WeatherActivity" />
+        <activity android:name="org.freedom.androidpatterndemo.mvp.view.WeatherActivity" />
     </application>
 
 </manifest>

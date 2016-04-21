@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import org.freedom.androidpatterndemo.mvc.WeatherActivity;
-import org.freedom.androidpatterndemo.R;
 
 /**
  * 应用主页，包含三种模式的入口:
@@ -45,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
                         forward(WeatherActivity.class);
                         break;
                     case 1:
-                        //TODO go to MVP demo
+                        //go to MVP demo
+                        forward(org.freedom.androidpatterndemo.mvp.view.WeatherActivity.class);
                         break;
                     case 2:
                         //TODO go to MVVM demo

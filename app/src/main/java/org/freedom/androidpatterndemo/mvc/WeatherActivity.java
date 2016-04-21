@@ -36,7 +36,7 @@ public class WeatherActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_weather_mvc);
+        setContentView(R.layout.activity_weather);
         lv = (ListView) findViewById(R.id.lv);
         llLoading = (LinearLayout) findViewById(R.id.ll_loading);
         loadData();
