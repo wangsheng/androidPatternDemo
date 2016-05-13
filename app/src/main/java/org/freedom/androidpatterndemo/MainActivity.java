@@ -48,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
                         forward(org.freedom.androidpatterndemo.mvp.view.WeatherActivity.class);
                         break;
                     case 2:
-                        //TODO go to MVVM demo
+                        //go to MVVM demo
+                        forward(org.freedom.androidpatterndemo.mvvm.view.WeatherActivity.class);
                         break;
                     default:
                         break;

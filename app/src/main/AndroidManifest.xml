@@ -19,6 +19,7 @@
         </activity>
         <activity android:name="org.freedom.androidpatterndemo.mvc.WeatherActivity" />
         <activity android:name="org.freedom.androidpatterndemo.mvp.view.WeatherActivity" />
+        <activity android:name="org.freedom.androidpatterndemo.mvvm.view.WeatherActivity" />
     </application>
 
 </manifest>

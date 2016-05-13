@@ -1,6 +1,4 @@
-package org.freedom.androidpatterndemo.mvp.presenter;
-
-import android.support.annotation.NonNull;
+package org.freedom.androidpatterndemo.mvvm.viewmodel;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -9,8 +7,7 @@ import com.google.gson.reflect.TypeToken;
 
 import org.freedom.androidpatterndemo.Constants;
 import org.freedom.androidpatterndemo.HttpEngine;
-import org.freedom.androidpatterndemo.mvc.model.Weather;
-import org.freedom.androidpatterndemo.mvp.view.IWeatherView;
+import org.freedom.androidpatterndemo.mvvm.model.Weather;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,17 +17,20 @@ import java.util.List;
 import okhttp3.Call;
 
 /**
- * 根据维基百科上关于MVP的词条描述，Presenter作用如下：
+ * View model for WeatherActivity
  *
- * Presenter作用于model和view，它从仓库（Model）中获取数据，并格式化后让view进行显示。
+ * 从维基百科文章中可以看到：
  *
- * Created by wangsheng on 16/4/21.
+ * view model是一个抽象的view，它对外暴露公有的属性和命令。
+ *
+ * Created by wangsheng on 16/5/12.
  */
-public class WeatherPresenter {
-    private IWeatherView mWeatherView;
+public class WeatherViewModel {
 
-    public WeatherPresenter(@NonNull IWeatherView view) {
-        this.mWeatherView = view;
+    private DataListener dataListener;
+
+    public WeatherViewModel(DataListener dataListener) {
+        this.dataListener = dataListener;
     }
 
     /**
@@ -41,7 +41,9 @@ public class WeatherPresenter {
             @Override
             public void onFailed(Call call, Exception e) {
                 if (call.request().url().url().toString().equals(Constants.API_WEATHER)) {
-                    mWeatherView.showErrorInfo(e);
+                    if (dataListener != null) {
+                        dataListener.onWeatherChanged(true, null);
+                    }
                 }
             }
 
@@ -52,12 +54,21 @@ public class WeatherPresenter {
                         JSONArray jsonArray = jsonResult.getJSONArray("results").getJSONObject(0).getJSONArray("daily");
                         Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create();
                         List<Weather> data = gson.fromJson(jsonArray.toString(), new TypeToken<List<Weather>>(){}.getType());
-                        mWeatherView.refreshWeatherList(data);
+                        if (dataListener != null) {
+                            dataListener.onWeatherChanged(false, data);
+                        }
                     } catch (JSONException e) {
-                        mWeatherView.showErrorInfo(e);
+                        e.printStackTrace();
+                        if (dataListener != null) {
+                            dataListener.onWeatherChanged(true, null);
+                        }
                     }
                 }
             }
         });
+    }
+
+    public interface DataListener {
+        void onWeatherChanged(boolean occurError, List<Weather> data);
     }
 }
